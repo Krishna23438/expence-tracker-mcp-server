@@ -7,7 +7,9 @@ authors = [
     { name = "Delta Student", email = "krishnagupta2402@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastmcp>=4.2.4",
+]
 
 [project.scripts]
 expence-tracker-mcp-server = "expence_tracker_mcp_server:main"
