@@ -36,6 +36,7 @@ def list_expenses(start_date,end_date):
   '''List all the expense entry from the database.'''
   with sqlite3.connect(DB_PATH) as c:
     cur = c.execute("""SELECT id, date, amount, category, subcategory, note FROM expenses 
+    WHERE date BETWEEN ? AND ?
     ORDER BY id ASC
 
     """,
