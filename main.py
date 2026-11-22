@@ -33,7 +33,7 @@ def add_expenses(date, amount, category , subcategory="",note=""):
 
 @mcp.tool
 def list_expenses(start_date,end_date):
-  '''List all the expense entry from the database.'''
+  '''List all the expense entry within an inclusive date range.'''
   with sqlite3.connect(DB_PATH) as c:
     cur = c.execute("""SELECT id, date, amount, category, subcategory, note FROM expenses 
     WHERE date BETWEEN ? AND ?
