@@ -23,6 +23,7 @@ init_db()
 
 @mcp.tool
 def add_expenses(date, amount, category , subcategory="",note=""):
+  '''Add a new expense entry to the database.'''
   with sqlite3.connect(DB_PATH) as c:
     cur = c.execute(
       "INSERT INFO expenses(data, amount, category, subcategory, note) VALUES (?,?,?,?,?)",
