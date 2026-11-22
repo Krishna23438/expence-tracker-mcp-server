@@ -9,7 +9,7 @@ mcp = FastMCP("ExpenseTracker")
 def init_db():
   with sqlite3.connect(DB_PATH) as c:
     c.execute("""
-        CREATE TABLE IF NOT EXIST expenses(
+        CREATE TABLE IF NOT EXISTS expenses(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           data TEXT NOT NULL,
           amount REAL NOT NULL,
