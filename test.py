@@ -33,6 +33,7 @@ def add_expenses(date, amount, category , subcategory="",note=""):
 
 @mcp.tool
 def list_expenses():
+  '''List all the expense entry from the database.'''
   with sqlite3.connect(DB_PATH) as c:
     cur = c.execute("SELECT id, date, amount, category, subcategory, note FROM expenses ORDER BY id ASC")
     cols = [d[0] for d in cur.description]
