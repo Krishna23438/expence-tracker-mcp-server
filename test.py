@@ -22,6 +22,21 @@ def init_db():
 init_db()
 
 @mcp.tool
-def add_expenses(data, amount, category , subcategory="",note=""):
+def add_expenses(date, amount, category , subcategory="",note=""):
   with sqlite3.connect(DB_PATH) as c:
-    
+    cur = c.execute(
+      "INSERT INFO expenses(data, amount, category, subcategory, note) VALUES (?,?,?,?,?)",
+      (date,amount,category,subcategory,note) 
+    )
+    return {"status":"ok","id":cur.lastrowid}
+
+@mcp.tool
+def list_expenses():
+  with sqlite3.connect(DB_PATH) as c:
+    cur = c.execute("SELECT id, date, amount, category, subcategory, note FROM expenses ORDER BY id ASC")
+    cols = [d[0] for d in cur.description]
+    return [dict(zip(cols,r)) for r in cur.fetchall()]
+
+
+if __name__ == "__main__":
+  mcp.run()
