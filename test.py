@@ -15,7 +15,7 @@ def init_db():
           amount REAL NOT NULL,
           category TEXT NOT NULL,
           subcategory TEXT DEFAULT '',
-          not TEXT DEFAULT ''
+          note TEXT DEFAULT ''
         )
     """)
 
