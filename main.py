@@ -71,6 +71,10 @@ def list_expenses(start_date,end_date):
       cols = [d[0] for d in cur.description]
       return [dict(zip(cols ,r )) for r in cur.fetchall()]
 
+@mcp.resource("expense://categories",mime_type="application/json")
+def categories():
+  #
+
 
 if __name__ == "__main__":
   mcp.run()
