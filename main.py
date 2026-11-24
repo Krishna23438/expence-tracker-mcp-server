@@ -4,7 +4,7 @@ import sqlite3
 
 DB_PATH = os.path.join(os.path.dirname(__file__),"expenses.db")
 
-CATEGORIES_PATH = os.path.join(os.path.dirname(__file__),"categoris.json")
+CATEGORIES_PATH = os.path.join(os.path.dirname(__file__),"categories.json")
 
 mcp = FastMCP("ExpenseTracker")
 
